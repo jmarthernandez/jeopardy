@@ -10,6 +10,8 @@ app.get('/js/app-bundle.js', browserify('./client/app-bundle/index.js', { extern
 // Non-js static files
 app.use(express.static('client/public'))
 
+app.use('/api/question', require('./question-api'));
+
 var port = process.env.PORT || 4000
 app.listen(port)
 console.log("Listening on port", port)
