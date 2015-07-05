@@ -45,7 +45,7 @@ App.view = function (ctrl) {
     ]),
     m('button.mui-btn mui-btn-primary mui-btn-lg', {
       onclick: Question.fetch
-    }, 'Here')
+    }, 'Another Question')
   ])
 }
 
