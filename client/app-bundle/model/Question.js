@@ -2,20 +2,22 @@ var m = require('mithril');
 
 var Question = module.exports = {
 
-  questionObj: {}
+  question: null,
     
-  // All open applications for all students
-  fetch: function(ctrl) {
+  // Fetch random question from db
+  fetch: function() {
     
-    m.request({ method: 'GET', url: '/question' })
+    m.request({ method: 'GET', url: '/api/question' })
       .then(function(questionResponse){
-        //make Question.questionObj = questionResponse
+        Question.question = questionResponse;
       })
+
   
   },
 
+  // Returns db to the 
   all: function() {
-    return Question.questionObj;
+    return Question.question;
   }
 
 };

@@ -1,29 +1,29 @@
-var m = require('mithril')
-var MyComponent = require('./components/MyComponent')
+var m = require('mithril');
+var MyComponent = require('./components/MyComponent');
+var Question = require('./model/Question.js');
 
+window.App = {};
 
-window.App = {}
-
-App.controller = function () {}
+App.controller = function () {
+  var ctrl = this;
+  Question.fetch();
+}
 
 App.view = function (ctrl) {
+  var random = Question.all();
   return [
     m('h1', 'Jeopardy Question'),
     m('h2', 'Question'),
-    m('p', 'Question Here'),
+    m('p', random.question),
     m('h2', 'Answer'),
-    m('p', 'Answer Here'),
+    m('p', random.answer),
     m('h2', 'Value'),
-    m('p', 'Value Here'),
+    m('p', random.value),
     m('h2', 'Epipsode Number'),
-    m('p', 'Epipsode Number Here'),
-    m('h2', 'Date'),
-    m('h2', 'Round')
+    m('p', random.show_number),
+    m('h2', 'Aired on: ' + random.air_date),
+    m('h2', 'Round : ' + random.round)
   ]
 }
 
 m.mount(document.getElementById('app'), App)
-
-
-//Add section for categrory, question, answer, 
-// value, date, episode number, round(Jeopardy Double Jeopardy
