@@ -13,7 +13,7 @@ router.get('/', function(req, res){
     if(err) {
       return console.error('error fetching client from pool', err);
     }
-    client.query('SELECT * FROM questions ORDER BY RANDOM() LIMIT 1', function(err, result) {
+    client.query('SELECT * FROM questions WHERE question NOT LIKE $1 ORDER BY RANDOM() LIMIT 1', ['%<a%'], function(err, result) {
       done();
 
       if(err) {

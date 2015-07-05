@@ -3,12 +3,15 @@ var Question = require('./model/Question.js');
 
 window.App = {};
 
+
 App.controller = function () {
   var ctrl = this;
+  //Grabs random question form db
   Question.fetch();
 }
 
 App.view = function (ctrl) {
+  //Makes fetch() response accessible to the view
   var random = Question.all();
   return m('.mui-container', [
     m('h1', 'Jeopardy'),
@@ -45,7 +48,7 @@ App.view = function (ctrl) {
     ]),
     m('button.mui-btn mui-btn-primary mui-btn-lg', {
       onclick: Question.fetch
-    }, 'Here')
+    }, 'Another Question')
   ])
 }
 
