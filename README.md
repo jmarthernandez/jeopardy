@@ -1,5 +1,5 @@
 #Try me
-Coming soon...
+[Random Jeopardy Question](http://random-jeopardy.herokuapp.com/)
 
 #Jeopardy Respository
 There are over 200,000 questions and answers that include airdate, show number, round(Double Jeopardy or Jeopardy), category, and value.
